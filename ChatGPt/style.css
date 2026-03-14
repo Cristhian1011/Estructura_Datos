@@ -1,0 +1,110 @@
+:root {
+  --bg: #0a0f1f;
+  --card: #121a2d;
+  --line: #273451;
+  --text: #e5ecff;
+  --muted: #96a4c4;
+  --primary: #4cc9f0;
+  --edit: #72efdd;
+  --danger: #ff5d73;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: radial-gradient(circle at 20% 0%, #1d2a49 0%, var(--bg) 45%);
+  color: var(--text);
+}
+
+.container {
+  width: min(1050px, 94vw);
+  margin: 1.2rem auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 14px 30px rgb(0 0 0 / 25%);
+}
+
+.hero h1 { margin: 0; }
+.hero p { margin-bottom: 0; color: var(--muted); }
+
+label { display: block; margin: .5rem 0 .25rem; color: var(--muted); }
+
+input, textarea {
+  width: 100%;
+  background: #0b1326;
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: 12px;
+  padding: .72rem .8rem;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--primary);
+  outline: 2px solid color-mix(in srgb, var(--primary), transparent 70%);
+}
+
+.actions, .item-actions { display: flex; gap: .5rem; flex-wrap: wrap; }
+.actions { margin-top: .8rem; }
+
+.btn {
+  border: 0;
+  border-radius: 10px;
+  padding: .58rem .9rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn-primary { background: var(--primary); color: #03131a; }
+.btn-ghost { background: #44506e; color: white; }
+.btn-edit { background: var(--edit); color: #002a24; }
+.btn-delete { background: var(--danger); color: #2b0007; }
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .7rem;
+}
+
+.top-bar h2 { margin: 0; }
+
+#list {
+  list-style: none;
+  padding: 0;
+  margin: .8rem 0 0;
+  display: grid;
+  gap: .7rem;
+}
+
+.item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: .8rem;
+  display: grid;
+  gap: .6rem;
+}
+
+.item-title { margin: 0; }
+.item-detail { margin: .3rem 0 0; color: var(--muted); }
+
+#empty { color: var(--muted); text-align: center; }
+.hidden { display: none; }
+
+@media (min-width: 900px) {
+  .container {
+    grid-template-columns: 370px 1fr;
+  }
+  .hero {
+    grid-column: 1 / -1;
+  }
+}

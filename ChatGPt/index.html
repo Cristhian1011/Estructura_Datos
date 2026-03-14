@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatGPt | CRUD moderno</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero card">
+        <h1>ChatGPt - CRUD de tareas</h1>
+        <p>Interfaz moderna, intuitiva y responsive para agregar, editar y eliminar.</p>
+      </header>
+
+      <section class="card form-card">
+        <h2 id="form-mode">Nueva tarea</h2>
+        <form id="task-form">
+          <input type="hidden" id="task-id" />
+
+          <label for="title">Título</label>
+          <input id="title" required maxlength="80" placeholder="Ej: Terminar actividad" />
+
+          <label for="detail">Detalle</label>
+          <textarea id="detail" required maxlength="220" rows="4" placeholder="Describe tu tarea..."></textarea>
+
+          <div class="actions">
+            <button class="btn btn-primary" type="submit" id="save-btn">Guardar</button>
+            <button class="btn btn-ghost hidden" type="button" id="cancel-btn">Cancelar</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card list-card">
+        <div class="top-bar">
+          <h2>Tareas</h2>
+          <input id="search" type="search" placeholder="Buscar..." />
+        </div>
+        <ul id="list"></ul>
+        <p id="empty">Sin tareas todavía. ¡Empieza agregando una!</p>
+      </section>
+    </main>
+
+    <template id="item-template">
+      <li class="item">
+        <div>
+          <h3 class="item-title"></h3>
+          <p class="item-detail"></p>
+        </div>
+        <div class="item-actions">
+          <button class="btn btn-edit" data-action="edit">Editar</button>
+          <button class="btn btn-delete" data-action="delete">Eliminar</button>
+        </div>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
